@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "ic-cosmos-backend": {
+      "candid": "src/ic-cosmos-backend/ic-cosmos-backend.did",
+      "package": "ic-cosmos-backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

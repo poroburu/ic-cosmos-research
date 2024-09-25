@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/ic-cosmos-backend"
+]
+resolver = "2"
