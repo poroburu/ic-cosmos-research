@@ -1,5 +1,5 @@
 [package]
-name = "ic-cosmos-provider"
+name = "ic-cosmos-wallet"
 version = { workspace = true }
 authors = { workspace = true }
 repository = { workspace = true }
@@ -18,10 +18,15 @@ ic-canisters-http-types = { workspace = true }
 ic-management-canister-types = { workspace = true }
 ic-metrics-encoder = { workspace = true }
 ic-stable-structures = { workspace = true }
+ic-cosmos = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 serde_bytes = { workspace = true }
 url = "2.5.0"
+getrandom = { version = "0.2", features = ["custom"] }
+hex = "0.4.3"
+sha2 = "0.10.6"
+k256 = { version = "0.12.0", features = ["ecdsa"] }
 
 [dev-dependencies]
 anyhow = "1.0.40"

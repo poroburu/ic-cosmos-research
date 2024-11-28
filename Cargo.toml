@@ -1,12 +1,15 @@
 [workspace]
 members = [
-    "src/ic-cosmos-provider"
+    "src/ic-cosmos-wallet",
+    "src/ic-cosmos-rpc",
+    "src/ic-cosmos"
+
 ]
 resolver = "2"
 
 [workspace.package]
 version = "0.1.0"
-description = "Interact with the Cosmos Interchain from the Internet Computer"
+description = "Interact with the Cosmos Interchain from the Internet Computer."
 keywords = ["icp", "web3", "cosmos", "rpc", "canister"]
 authors = ["Poroburu <poroburu@gmail.com>"]
 repository = "https://github.com/poroburu/ic-cosmos"
@@ -15,31 +18,43 @@ license = "Apache-2.0"
 edition = "2021"
 
 [workspace.dependencies]
-# Core IC dependencies
+# local dependencies
+ic-cosmos-wallet = { path = "src/ic-cosmos-wallet" }
+ic-cosmos-rpc = { path = "src/ic-cosmos-rpc" }
+ic-cosmos = { path = "src/ic-cosmos" }
+test-utils = { path = "src/test-utils" }
+
+
+# ic dependencies
 candid = "0.10"
+ic-agent = "0.39"
 ic-cdk = "0.16"
-ic-types = "0.7"
 ic-canister-log = "0.2"
 ic-canisters-http-types = { git = "https://github.com/dfinity/ic", package = "ic-canisters-http-types" }
 ic-crypto-ed25519 = { git = "https://github.com/dfinity/ic", package = "ic-crypto-ed25519" }
 ic-management-canister-types = { git = "https://github.com/dfinity/ic", package = "ic-management-canister-types" }
+ic-test-utilities-load-wasm = { git = "https://github.com/dfinity/ic", rev = "release-2024-09-26_01-31-base" }
 ic-metrics-encoder = "1.1"
-ic-stable-structures = "0.6.5"
+ic-stable-structures = "0.6"
+ic-types = "0.7"
+ic-utils = "0.39"
+pocket-ic = "6.0.0"
 
-# Project-specific dependencies
-ic-cosmos-provider = { path = "src/ic-cosmos-provider" }
-
-# Additional utilities
-pocket-ic = "5.0.0"
+# other dependencies
+base64 = "0.22"
+futures = "0.3"
+thiserror = "2"
 serde = "1"
 serde_json = "1.0"
 serde_bytes = "0.11"
+url = "2.5"
+proptest = "1.5.0"
 
 [profile.release]
 debug = false
 lto = true
 strip = true
-opt-level = 's'
+opt-level = 'z'
 
 # Required by `ic-test-utilities-load-wasm`
 [profile.canister-release]
